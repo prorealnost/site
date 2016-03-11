@@ -1,0 +1,36 @@
+<section
+{%- if background %}
+  style="background-image: url(/images/{{ include.section.background }}); background-size: cover; background-attachment: fixed; background-position: top;"
+{%- endif -%}>
+  <div class="container">
+    {% for item in items %}
+      <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+          {% if item.avatar %}
+            <img src="/images/{{ include.section.item.avatar }}" class="img-responsive img-circle pull-left avatar" style="margin: 30px 0px 30px 0; width: 200px; height=200px; "/>
+          {% endif %}
+        </div>
+        <div class="col-md-8">
+          <h3>{{ include.section.item.name }} <small>{{ include.section.item.city }}</small></h3>
+          {{ include.section.item.text| append: '' | markdownify }}
+
+          <p>
+            {% if item.site is defined %}
+              <i class="glyphicon glyphicon-globe"></i>
+              <a href="http://{{ include.section.item.site }}">
+                {{ include.section.item.site }}
+              </a>
+            {% endif %}
+
+            {% if item.vk is defined %}
+              ВК: 
+              <a href="https://vk.com/{{ include.section.item.vk }}">
+                {{ include.section.item.vk }}
+              </a>
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

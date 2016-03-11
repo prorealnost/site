@@ -1,0 +1,44 @@
+<section class="text">
+  <div class="container">
+    <p class="lead">{{ include.section.title }}</p>
+    <form action="{{ include.section.shot | shot_url }}" method="POST">
+      <input type="hidden" name="product" value="{{ include.section.product }}"/>
+      <h4>Заказ</h4>
+      <div class="form-group">
+        <label>Имя / Фамилия</label>
+        <input name="name" type="text" required class="form-control" placeholder="Иван Иванов">
+      </div>
+      <div class="form-group">
+        <label>Телефон</label>
+        <input name="phone" rules="phone" type="text" required class="form-control" placeholder="+7 921 12345678">
+      </div>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input name="email" type="email" required class="form-control" placeholder="ivan@ivanov.com">
+      </div>
+      <h4>Адрес доставки</h4>
+      <div class="form-group">
+        <label for="fullname" class="required">Кому (ФИО)</label>
+        <input type="text" class="form-control" id="fullname" name="fullname" required="required" placeholder="Иванова Ирина Ивановна" />
+      </div>
+      <div class="form-group">
+        <label for="street" class="required">Улица, дом, корпус, квартира</label>
+        <input type="text" class="form-control" id="street" name="street" required="required" placeholder="ул. Уютная, 25 кв 17"/>
+      </div>
+      <div class="form-group">
+        <label for="city" class="required">Город</label>
+        <input type="text" class="form-control" id="city" name="city" required="required" placeholder="Санкт-Петербург"/>
+      </div>
+      <div class="form-group">
+        <label for="zipcode" class="required">Почтовый индекс</label>
+        <input type="text" class="form-control" id="zipcode" name="zipcode" required="required" placeholder="191000"/>
+      </div>
+      <div class="form-group">
+        <label for="country" class="required">Страна</label>
+        <input type="text" class="form-control" id="country" name="country" required="required" placeholder="Россия"/>
+      </div>
+      <button type="submit" class="btn btn-primary"><span class="fui-star-2"> Заказать</span>
+      </button>
+    </form>
+  </div>
+</section>

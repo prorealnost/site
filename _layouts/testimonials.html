@@ -1,0 +1,61 @@
+---
+layout: layout
+---
+
+<section class="bg-primary">
+  <div class="container">
+    <p class="lead">
+      Ты выпускник?
+    </p>
+    <p>
+      Мы будем благодарны, если ты напишешь отзыв о тренинге на <a href="mailto:spasibo@prorealnost.com">spasibo@prorealnost.com</a>
+    </p>
+  </div>
+</section>
+{% for item in page.sections | reverse %}
+  <section class="post testimonial {% cycle 'odd', '' %}">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          {% if item.avatar %}
+            <img src="{{ item.avatar }}" class="img-responsive img-circle pull-left avatar" />
+          {% endif %}
+        </div>
+        <div class="col-md-8">
+          <h3>{{ item.author }}</h3>
+          {% if item.video %}
+            <div class="flex-video widescreen">
+              <iframe allowfullscreen="" frameborder="0" src="http://www.youtube.com/embed/{{ item.video.id }}?rel=0"></iframe>
+            </div>
+          {% endif %}
+          {% if item.text %}
+            <div class="post-body">
+              {{ item.text| append: '' | markdownify }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endfor %}
+
+<style type="text/css">
+.avatar {
+  margin: 8px 30px 30px 0;
+}
+.testimonial.odd {
+  background: #f8f8f8;
+}
+.testimonial {
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: -1px;
+
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.testimonial h3 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+</style>

@@ -1,0 +1,64 @@
+<section class="text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>{{ include.section.title }}</h1>
+        <div class="text-body">
+          {{ include.section.text| append: '' | markdownify }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style type="text/css">
+.text h1 {
+  margin-bottom: 50px;
+  margin-top: 0;
+}
+.text-body p {
+  margin: 0;
+}
+.text-body p + p {
+  margin-top: 30px;
+}
+.text-body h1 {
+  font-size: 35px;
+  margin: 45px 0 35px;
+}
+.text-body h2 {
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  margin: 35px 0 25px;
+  text-transform: none;
+}
+.text-body .img {
+  height: 242px;
+  width: 538px;
+  margin: 70px 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: inline-block;
+}
+.text-body .img > img {
+  display: block;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.text-body blockquote {
+  position: relative;
+  margin: 60px 0 55px 40px;
+}
+.text-body blockquote:before {
+  content: url(/assets/img/icons/quote-up-mb.png);
+  position: absolute;
+  top: 0px;
+  left: -40px;
+}
+.text-body blockquote p, .text-body blockquote li {
+  font-size: 18px;
+}
+</style>

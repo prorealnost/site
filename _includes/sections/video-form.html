@@ -1,0 +1,36 @@
+{% if product is defined %}
+  {% set url = product | product_order_url %}
+{% elseif shot is defined %}
+  {% set url = shot | shot_url %}
+{% endif %}
+
+<section style="{{ include.section.style }}">
+  <div class="container">
+    {{ include.section.text| append: '' | markdownify }}
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="flex-video widescreen">
+          <iframe src="//www.youtube.com/embed/{{ include.section.video.id }}?rel=0{{ include.section.query.get('autoplay') ? '&autoplay=true' }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="well">
+          <form action="{{ include.section.url }}" method="POST">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control input-lg" placeholder="Имя" required="required"/>
+            </div>
+            {% if hidephone is not defined or not hidephone %}
+            <div class="form-group">
+              <input type="text" name="phone" rules="phone" class="form-control input-lg" placeholder="Телефон" required="required"/>
+            </div>
+            {% endif %}
+            <div class="form-group">
+              <input type="email" name="email" class="form-control input-lg" placeholder="Емейл" required="required"/>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Записаться</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

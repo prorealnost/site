@@ -1,0 +1,25 @@
+<section class="head">
+  <div class="container">
+    <h1 align="center">
+      {{ include.section.title }}
+    </h1>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well">
+          <form action="{{ include.section.shot | shot_url }}" method="POST">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control input-lg" placeholder="Имя" required="required"/>
+            </div>
+            <div class="form-group">
+              <input type="text" name="phone" rules="phone" class="form-control input-lg" placeholder="Телефон" required="required"/>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" class="form-control input-lg" placeholder="Емейл" required="required"/>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Заказать</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

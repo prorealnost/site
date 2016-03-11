@@ -1,0 +1,18 @@
+data:
+  - class: pricing-1
+    anchor: order
+    plans:
+      - name: Программа стандарт
+        price: 5000
+        features:
+          - title: **"Как открыть свой бизнес"** Пошаговый видео-курс
+            icon: fui-cmd
+          - title: **"Фундамент бизнеса"** Аудио-курс
+            icon: fui-mic
+      - name: Программа максимум
+        price: 50000
+        features:
+          - title: **"Как открыть свой бизнес"** Пошаговый видео-курс
+            icon: fui-cmd
+          - title: **"Фундамент бизнеса"** Аудио-курс
+            icon: fui-mic

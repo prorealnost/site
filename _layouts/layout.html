@@ -1,0 +1,114 @@
+---
+layout: base
+header:
+  class: header-md-light
+  logo: prorealnost-textlogo.png
+  menu:
+      - 
+        title: Главная
+        url: /
+      - 
+        title: Тренинг
+        url: /learnmore/
+      - 
+        title: Подробности
+        url: /details/
+      - 
+        title: Кто ведёт
+        url: /nickvorobiov/
+      - 
+        title: Отзывы
+        url: /testimonials/
+
+footer:
+  class: footer-1
+  first:
+    title: Ты можешь больше
+    text: |
+      _«Это было одно из самых важных переживаний в жизни»_
+
+      _«Вся жизнь разделилась на до и после»_
+
+      _«Я никогда не буду таким как прежде»_
+
+      [Отзывы →](/testimonials/)
+  nav:
+    title: Меню
+    menu:
+      - 
+        title: Главная
+        url: /
+      - 
+        title: Тренинг
+        url: /learnmore/
+      - 
+        title: Подробности
+        url: /details/
+      - 
+        title: Кто ведёт
+        url: /nickvorobiov/
+      - 
+        title: Отзывы
+        url: /testimonials/
+      - 
+        title: Политика конфиденциальности
+        url: /privacy/
+  refs:
+    title: Следуй за нами
+    menu:
+      - 
+        title: Vk
+        url: https://vk.com/prorealnost
+      - 
+        title: Facebook
+        url: https://www.facebook.com/prorealnost
+      - 
+        title: Twitter
+        url: https://twitter.com/prorealnost
+      - 
+        title: Instagram
+        url: http://instagram.com/prorealnost
+      -
+        title: Задать вопрос Николаю
+        url: http://soedinennost.com/ask/
+  last:
+    title: Запишись
+    url: /learnmore/#order
+    text: |
+      или [Узнай Больше →](/learnmore/)
+      
+      contact@prorealnost.com
+      
+      Россия:  
+      \+7 921 7618506  
+      Анастасия
+      
+      Европа:  
+      \+49 176 30389706  
+      Кирилл
+
+subscribe:
+  text: Получать полезные статьи
+  shot: 13
+---
+
+{% assign header_filename = 'layout/' | append: page.header.class | append: '.html' %}
+{% include {{header_filename}} header=page.header %}
+
+{{ content }}
+
+{% assign footer_filename = 'layout/' | append: page.footer.class | append: '.html' %}
+{% include {{footer_filename}} footer=page.footer %}
+
+<style type="text/css">
+section {
+  padding: 80px 0;
+}
+section.gray {
+  background: #fafafa;
+  border: solid #f0f0f0 1px;
+}
+.bg-midnight-blue {
+  background-color: #2c3e50;
+}
+</style>

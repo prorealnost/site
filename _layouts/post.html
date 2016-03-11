@@ -1,0 +1,82 @@
+---
+layout: layout
+---
+
+<section class="post">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>{{ page.title }}</h1>
+        <div class="post-body">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style type="text/css">
+.post img {
+  max-width: 100%;
+  height: auto;
+}
+
+.post h1 {
+  margin-bottom: 50px;
+  margin-top: 0;
+}
+.post-body p {
+  margin: 0;
+}
+.post-body p + p {
+  margin-top: 30px;
+}
+
+.post-body li {
+  margin: 0;
+}
+.post-body li + li, .post-body p + ul li, .post-body p + ol li {
+  margin-top: 20px;
+}
+
+.post-body h1 {
+  font-size: 35px;
+  margin: 45px 0 35px;
+}
+.post-body h2 {
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  margin: 35px 0 25px;
+  text-transform: none;
+}
+.post-body .img {
+  height: 242px;
+  width: 538px;
+  margin: 70px 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: inline-block;
+}
+.post-body .img > img {
+  display: block;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.post-body blockquote {
+  position: relative;
+  margin: 60px 0 55px 40px;
+}
+.post-body blockquote:before {
+  content: url(/assets/img/icons/quote-up-mb.png);
+  position: absolute;
+  top: 0px;
+  left: -40px;
+}
+.post-body blockquote p, .post-body blockquote li {
+  font-size: 18px;
+}
+</style>

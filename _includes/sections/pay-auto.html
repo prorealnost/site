@@ -1,0 +1,13 @@
+<section>
+  <div class="container">
+    <p class="text-center">
+      Переадресация на страницу оплаты...
+    </p>
+    <p class="text-center"><a class="btn btn-lg btn-primary" href="{{ include.section.context.pay_url }}">Оплатить</a>
+  </div>
+</section>
+<script type="text/javascript">
+setTimeout(function() {
+  location.href = '{{ include.section.context.pay_url }}';
+}, 1);
+</script>

@@ -1,0 +1,103 @@
+<div class="container" id="countdown">
+  <p class="lead">До повышения цены осталось</p>
+  <div id="clock"></div>
+  <div id="clock-text"><div class="digit-text">ДНЕЙ</div><div class="digit-text">ЧАСОВ</div><div class="digit-text">МИНУТ</div><div style="margin-right:0;" class="digit-text">СЕКУНД</div></div>
+</div>
+<style type="text/css">
+#countdown {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+#clock .digits {
+  width:71px;
+  height:56px;
+  font-size:38px;
+  line-height:56px;
+  text-align:center;
+  background: #e74c3c;
+  color:#ffffff;
+  margin-right:31px;
+  display: inline-block;
+}
+#clock-text .digit-text {
+  width:71px;
+  font-size:14px;
+  text-align:center;
+  color:#ffffff;
+  margin-right:31px;
+  display: inline-block;
+}
+#clock, #clock-text {
+  width: 380px;
+  margin: 0 auto;
+}
+</style>
+<script type="text/javascript">
+
+String.prototype.hashCode = function() {
+  var hash = 0, i, chr, len;
+  if (this.length == 0) return hash;
+  for (i = 0, len = this.length; i < len; i++) {
+    chr   = this.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+};
+
+var redirectLink = '{{ include.section.countdown.redirect }}';
+var targetTime = {{ include.section.countdown.minutes }};
+var targetTimeFromCookie;
+var cookie_name = document.location.pathname.hashCode() + '_tm';
+
+DisplayFormat = '<div class="digits">%%D%%</div><div class="digits">%%H%%</div><div class="digits">%%M%%</div><div style="margin-right:0;" class="digits">%%S%%</div>';
+
+if (get_cookie(cookie_name) === null) {
+  var timeFirstOpenPage = new Date();
+  var cookieLive = new Date( new Date().getTime() + 1000*60*60*24*60);
+  document.cookie = cookie_name + '=' + timeFirstOpenPage + '; expires='+cookieLive.toUTCString();
+  targetTimeFromCookie = new Date( new Date().getTime() + targetTime*1000*60);
+} else {
+  targetTimeFromCookie = new Date(get_cookie(cookie_name)).valueOf() + targetTime*1000*60;
+}
+
+function calcage(secs, num1, num2) {
+  s = ((Math.floor(secs/num1))%num2).toString();
+  if (s.length < 2)
+    s = '0' + s;
+  return s;
+}
+
+function CountBack(secs) {
+  if (secs < 0) {
+    document.location = redirectLink;
+    return;
+  }
+  
+  DisplayStr = DisplayFormat.replace(/%%D%%/g, calcage(secs,86400,100000));
+  DisplayStr = DisplayStr.replace(/%%H%%/g, calcage(secs,3600,24));
+  DisplayStr = DisplayStr.replace(/%%M%%/g, calcage(secs,60,60));
+  DisplayStr = DisplayStr.replace(/%%S%%/g, calcage(secs,1,60));
+
+  document.getElementById('clock').innerHTML = DisplayStr;
+  
+  setTimeout('CountBack(' + (secs-1) + ')', 1000);
+}
+
+function get_cookie ( cookie_name ){
+  var results = document.cookie.match ( '(^|;) ?' + cookie_name + '=([^;]*)(;|$)' );
+  if ( results )
+    return ( unescape ( results[2] ) );
+  else
+    return null;
+}
+
+var dnow = new Date();
+var ddiff = targetTimeFromCookie-dnow;
+gsecs = Math.floor(ddiff.valueOf()/1000);
+
+CountBack(gsecs);
+
+</script>

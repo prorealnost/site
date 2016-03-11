@@ -1,0 +1,37 @@
+{% if product is defined %}
+  {% set url = product | product_order_url %}
+{% elseif shot is defined %}
+  {% set url = shot | shot_url %}
+{% endif %}
+
+<section style="{{ include.section.style }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-md-8">
+        {{ include.section.text| append: '' | markdownify }}
+        <p class="text-danger">{{ include.section.date }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md-4">
+        <div class="well">
+          <form action="{{ include.section.url }}" method="POST">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control input-lg" placeholder="Имя" required="required"/>
+            </div>
+            {% if hidephone is not defined or not hidephone %}
+            <div class="form-group">
+              <input type="text" name="phone" rules="phone" class="form-control input-lg" placeholder="Телефон" required="required"/>
+            </div>
+            {% endif %}
+            <div class="form-group">
+              <input type="email" name="email" class="form-control input-lg" placeholder="Емейл" required="required"/>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Записаться</button>
+            <small><small>Вы сможете отписаться от рассылки в любой момент. <a href="http://prorealnost.com/page/privacy" target="_blank">Политика конфиденциальности</a></small></small>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

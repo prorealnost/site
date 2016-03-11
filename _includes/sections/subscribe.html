@@ -1,0 +1,21 @@
+{% if theme.subscribe and theme.subscribe.shot %}
+{% set url = theme.subscribe.shot | shot_url %}
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-2">
+        <form action="{{ include.section.url }}" method="POST" class="form-inline">
+          <div class="form-group">
+            <input type="text" name="name" class="form-control input-lg" placeholder="Имя" required="required"/>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" class="form-control input-lg" placeholder="Емейл" required="required"/>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">{{theme.subscribe.text}}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}

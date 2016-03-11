@@ -1,0 +1,8 @@
+<li {% if page.permalink == url %} class="active" {% endif %}>
+  <a href="{{ include.item.url }}">
+    {% if icon %}
+      <i class="fa fa-lg fa-fw {{ include.item.icon }}" title="{{ include.item.title }}"></i>
+    {% endif %}
+    {{ include.item.title }}
+  </a>
+</li>

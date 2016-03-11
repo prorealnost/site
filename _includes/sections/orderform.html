@@ -1,0 +1,26 @@
+<section class="text">
+  <div class="container">
+    <p class="lead">{{ include.section.title }}</p>
+    <form action="{{ include.section.shot | shot_url }}" method="POST">
+      <input type="hidden" name="product" value="{{ include.section.product }}"/>
+      <div class="form-group">
+        <label>Имя / Фамилия</label>
+        <input name="name" type="text" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Телефон</label>
+        <input name="phone" rules="phone" type="text" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input name="email" type="email" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Город</label>
+        <input name="city" type="text" required class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary"><span class="fui-star-2"></span>
+      </button>
+    </form>
+  </div>
+</section>

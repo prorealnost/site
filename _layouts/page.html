@@ -1,0 +1,9 @@
+---
+layout: layout
+---
+
+{% for section in page.sections %}
+  {% if section.anchor %}<a name="{{ section.anchor }}"></a>{% endif %}
+  {% capture section_filename %}sections/{{ section.class }}.html{% endcapture %}
+  {% include {{ section_filename }} section=section %}
+{% endfor %}

@@ -1,0 +1,93 @@
+<style type="text/css">
+.pre-line {
+  white-space: pre-line;
+}
+.course-header {
+  font-size: 120%;
+  font-weight: bold;
+  text-align: center;
+}
+.course-footer td, .table-header th {
+  border-bottom: solid black 1px !important;
+}
+.course-header td {
+  border-top: solid black 1px !important;
+}
+.course-body {
+  font-size: 85%;
+}
+.course-footer {
+  font-weight: bold;
+  text-align: center;
+}
+.table-header > *, .final-price > *, .pricing-table tr.order-buttons a {
+  background-color: #2980b9 !important;
+  color: white;
+}
+.table-header > *, .final-price > * {
+  font-size: 150%;
+}
+.pricing-table tr > *:nth-child(1), .pricing-table tr > *:nth-child(3) {
+}
+
+.pricing-table tr.table-header > *:nth-child(2),
+.pricing-table tr.final-price > *:nth-child(2),
+.pricing-table tr.order-buttons > *:nth-child(2) > a {
+  background-color: #3498db !important;
+}
+</style>
+
+<section>
+  <div class="container">
+    <table class="table table-bordered table-striped pricing-table">
+      <tr class="table-header">
+        {% for option in options %}
+          <th class="text-center">{{ include.section.option.title }}</th>
+        {% endfor %}
+      </tr>
+      {% for feature in features %}
+        <tr class="course-body">
+          {% for option in options %}
+            {% if loop.index in feature.in %}
+              <td>
+                <i class="glyphicon glyphicon-ok"></i> {{ include.section.feature.title }}
+              </td>
+            {% else %}
+              <td class="text-muted">
+                <i class="glyphicon glyphicon-remove"></i>
+                {{ include.section.feature.title }}
+              </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
+      {% if discount is defined %}
+        <tr>
+          {% for option in options %}
+            <td class="text-center pre-line"><s>{{ include.section.option.oldprice }}</s></td>
+          {% endfor %}
+        </tr>
+        <tr>
+          <td class="text-center" colspan="3">{{ include.section.yourpricetext }}</td>
+        </tr>
+      {% endif %}
+      <tr class="final-price">
+        {% for option in options %}
+          <th class="text-center">
+            {{ include.section.option.price }}
+          </th>
+        {% endfor %}
+      </tr>
+      <tr class="order-buttons">
+        {% for option in options %}
+          <th class="text-center">
+            <a class="btn btn-inverse btn-lg" href="{{ include.section.option.shot | shot_url }}">
+              <i class="glyphicon glyphicon-shopping-cart"></i>
+              Заказать
+            </a>
+          </th>
+        {% endfor %}
+      </tr>
+    </table>
+  </div>
+</section>

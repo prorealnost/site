@@ -1,0 +1,25 @@
+<div class="content-section-b">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
+        <h3>{{ include.section.title }}</h3>
+        {{ include.section.text| append: '' | markdownify }}
+      </div>
+      <div class="col-lg-5 col-sm-pull-6 col-sm-6 imagecol">
+        <img class="img-responsive" src="/images/{{ include.section.image }}" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<style type="text/css">
+.content-section-b {
+  padding: 50px 0;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: -1px;
+}
+.content-section-b .imagecol img {
+  max-height: 500px;
+  margin-top: 45px;
+}
+</style>

@@ -1,0 +1,40 @@
+<header>
+  <nav class="navbar navbar-static-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-03">
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="/"><img src="/images/{{ include.header.logo }}"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-03">
+        <ul class="nav navbar-nav navbar-right">
+          {% for item in include.header.menu %}
+            {% include layout/menuitem.html item=item %}
+          {% endfor %}
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </nav><!-- /navbar -->
+</header>
+
+<style type="text/css">
+header .navbar-brand img {
+  height: 42px; width: auto;
+}
+header .navbar-header {
+  height: 74px !important;
+}
+header .navbar-nav, header .navbar-header {
+  margin-top: 25px !important;
+  margin-bottom: 25px !important;
+}
+header .navbar-nav a {
+  font-size: 18px !important;
+  padding: 15px 20px !important;
+}
+
+header .navbar {
+  margin-bottom: 0;
+}
+</style>
