@@ -2,60 +2,6 @@
 layout: layout
 ---
 
-<div class="container">
-  <div class="row">
-    <nav class="bs-docs-sidebar col-xs-3">
-      <!--Nav Bar -->
-      <ul id="sidebar" class="nav nav-stacked fixed">
-        {% for section in page.sections %}
-          {% if section.anchor %}
-            <li>
-              <a href="#{{ section.anchor }}">{{ section.title }}</a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </nav>
-  </div>
-</div>
-
-{% for section in page.sections %}
-  <section class="text{% cycle '-b', '' %}"
-    {% if section.anchor %} id="{{ section.anchor }}" {% endif %}>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-8 col-xs-offset-4">
-          <h1>{{ section.title }}</h1>
-          {% if section.class == 'video' %}
-            <div class="flex-video widescreen">
-              <iframe allowfullscreen="" frameborder="0" src="http://www.youtube.com/embed/{{ section.video.id }}?rel=0"></iframe>
-            </div>
-          {% else %}
-            <div class="text-body">
-              {{ section.text| append: '' | markdownify }}
-            </div>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </section>
-{% endfor %}
-
-<script type="text/javascript">
-$(function() {
-  $('body').scrollspy({
-    target: '.bs-docs-sidebar',
-    offset: 40
-  });
-
-  $("#sidebar").affix({
-    offset: {
-      top: 200 /* header height */
-    }
-  });
-})
-</script>
-
 <style type="text/css">
 #sidebar.affix {
   top: 60px;
@@ -193,3 +139,57 @@ $(function() {
   font-size: 18px;
 }
 </style>
+
+<div class="container">
+  <div class="row">
+    <nav class="bs-docs-sidebar col-xs-3">
+      <!--Nav Bar -->
+      <ul id="sidebar" class="nav nav-stacked fixed">
+        {% for section in page.sections %}
+          {% if section.anchor %}
+            <li>
+              <a href="#{{ section.anchor }}">{{ section.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
+
+{% for section in page.sections %}
+  <section class="text{% cycle '-b', '' %}"
+    {% if section.anchor %} id="{{ section.anchor }}" {% endif %}>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-4">
+          <h1>{{ section.title }}</h1>
+          {% if section.class == 'video' %}
+            <div class="flex-video widescreen">
+              <iframe allowfullscreen="" frameborder="0" src="http://www.youtube.com/embed/{{ section.video.id }}?rel=0"></iframe>
+            </div>
+          {% else %}
+            <div class="text-body">
+              {{ section.text| append: '' | markdownify }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endfor %}
+
+<script type="text/javascript">
+$(function() {
+  $('body').scrollspy({
+    target: '.bs-docs-sidebar',
+    offset: 40
+  });
+
+  $("#sidebar").affix({
+    offset: {
+      top: 200 /* header height */
+    }
+  });
+})
+</script>

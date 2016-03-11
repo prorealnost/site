@@ -1,35 +1,3 @@
-<footer class="footer-1 bg-midnight-blue">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-5">
-        <p class="lead">{{ include.footer.first.title }}</p>
-        {{ include.footer.first.text| append: '' | markdownify }}
-      </div>
-      <nav>
-        <div class="col-sm-2 col-sm-offset-1">
-          <h6>{{ include.footer.nav.title }}</h6>
-          <ul>
-            {% for item in include.footer.nav.menu %}
-              {% include layout/menuitem.html item=item %}
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="col-sm-2">
-          <h6>{{ include.footer.refs.title }}</h6>
-          <ul>
-            {% for item in include.footer.refs.menu %}
-              {% include layout/menuitem.html item=item %}
-            {% endfor %}
-          </ul>
-        </div>
-      </nav>
-      <div class="col-sm-2 buy-btn">
-        <a class="btn btn-danger btn-block" href="{{ include.footer.last.url }}">{{ include.footer.last.title }}</a>
-        {{ include.footer.last.text| append: '' | markdownify }}
-      </div>
-    </div>
-  </div>
-</footer>
 <style type="text/css">
 /**
  * Footer 1 stylesheet  
@@ -203,3 +171,35 @@
   vertical-align: top;
 }
 </style>
+<footer class="footer-1 bg-midnight-blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <p class="lead">{{ include.footer.first.title }}</p>
+        {{ include.footer.first.text| append: '' | markdownify }}
+      </div>
+      <nav>
+        <div class="col-sm-2 col-sm-offset-1">
+          <h6>{{ include.footer.nav.title }}</h6>
+          <ul>
+            {% for item in include.footer.nav.menu %}
+              {% include layout/menuitem.html item=item %}
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="col-sm-2">
+          <h6>{{ include.footer.refs.title }}</h6>
+          <ul>
+            {% for item in include.footer.refs.menu %}
+              {% include layout/menuitem.html item=item %}
+            {% endfor %}
+          </ul>
+        </div>
+      </nav>
+      <div class="col-sm-2 buy-btn">
+        <a class="btn btn-danger btn-block" href="{{ include.footer.last.url }}">{{ include.footer.last.title }}</a>
+        {{ include.footer.last.text| append: '' | markdownify }}
+      </div>
+    </div>
+  </div>
+</footer>
